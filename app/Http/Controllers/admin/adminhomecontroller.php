@@ -1,15 +1,13 @@
 <?php
 
-namespace App\Http\Controllers\admin;
+namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Models\Books;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
-class adminhomecontroller extends Controller
+class AdminHomeController extends Controller
 {
 
 
@@ -24,7 +22,6 @@ class adminhomecontroller extends Controller
                 //     ->where(['type' => 'IT'])
                 ->get();
 
-            return view("admin.home.index", compact('books'));
 
             // $books = DB::table('books')
             //     ->select('*')
@@ -32,7 +29,7 @@ class adminhomecontroller extends Controller
             //     ->where(['type' => 'IT'])
             //     ->get();
 
-
+            return view("admin.home.index", compact('books'));
         } catch (\Throwable $th) {
             throw $th;
         }

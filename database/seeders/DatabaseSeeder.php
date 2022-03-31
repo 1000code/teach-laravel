@@ -23,7 +23,7 @@ class DatabaseSeeder extends Seeder
             'name' => 'Champadev',
             'role' => 'admin',
             'phone' => '2099991111',
-            'password' => '12345678',
+            'password' => Hash::make('12345678'),
             "created_at" => Carbon::now()
         ]);
 
@@ -31,7 +31,7 @@ class DatabaseSeeder extends Seeder
             'name' => 'Kob',
             'role' => 'member',
             'phone' => '2099992222',
-            'password' => '12345678',
+            'password' => Hash::make('12345678'),
             "created_at" => Carbon::now()
         ]);
     }

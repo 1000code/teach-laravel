@@ -19,17 +19,19 @@
         php artisan migrate:refresh --seed
 
 8. Create function login on logincontroller
- public function login(Request $request)
+  public function login(Request $request)
     {
         $this->validate($request, [
-            'phone' => 'required',
+            'phone' => 'required|max:10|min:10',
             'password' => 'required',
         ], [
-            'phone.required' => 'ກະລຸນາປ້ອນອີເມວ',
+            'phone.required' => 'ກະລຸນາປ້ອນ ໝາຍເລກໂທລະສັບ',
+            'phone.max' => 'ໝາຍເລກໂທລະສັບບໍ່ຖືກ',
+            'phone.min' => 'ໝາຍເລກໂທລະສັບບໍ່ຖືກ',
             'password.required' => 'ກະລຸນາປ້ອນລະຫັດຜ່ານ',
         ]);
 
-       if (auth()->attempt(array('phone' => $request['phone'], 'password' => $request['password']))) {
+        if (auth()->attempt(array('phone' => $request['phone'], 'password' => $request['password']))) {
             if (auth()->user()->role == 'admin') {
                 return redirect()->route('admin');
             } else {
