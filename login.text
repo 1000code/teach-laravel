@@ -1,0 +1,21 @@
+1. require:  composer require laravel/ui
+2. php artisan ui bootstrap --auth
+    -- npm install  & npm run dev
+3. Make Middleware :  php artisan make:middleware isAdmin
+4. Edit middleware :
+        if (Auth()->user()->role == 'admin') {
+            return $next($request);
+        } else {
+            return redirect()->route('member.home');
+        }
+
+5. add middleware in Kernel.php
+        'IsAdmin' => \App\Http\Middleware\isAdmin::class,
+
+6. design Database :
+        if u want to login by email, don't change
+
+7. Upload table to database :
+        php artisan migrate:refresh --seed
+
+
