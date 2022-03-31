@@ -15,7 +15,27 @@
 6. design Database :
         if u want to login by email, don't change
 
-7. Upload table to database :
+7. Upload table to database & seeding:
         php artisan migrate:refresh --seed
 
+8. Create function login on logincontroller
+ public function login(Request $request)
+    {
+        $this->validate($request, [
+            'phone' => 'required',
+            'password' => 'required',
+        ], [
+            'phone.required' => 'ກະລຸນາປ້ອນອີເມວ',
+            'password.required' => 'ກະລຸນາປ້ອນລະຫັດຜ່ານ',
+        ]);
 
+       if (auth()->attempt(array('phone' => $request['phone'], 'password' => $request['password']))) {
+            if (auth()->user()->role == 'admin') {
+                return redirect()->route('admin');
+            } else {
+                return redirect()->route('member.home');
+            }
+        } else {
+            return redirect()->route('login')->with('error', "ຊື່ຜູ້ໃຊ້ ຫຼື ລະຫັດຜ່ານບໍ່ຖືກຕ້ອງ");
+        }
+    }
