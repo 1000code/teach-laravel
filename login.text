@@ -10,7 +10,7 @@
         }
 
 5. add middleware in Kernel.php
-        'IsAdmin' => \App\Http\Middleware\isAdmin::class,
+        'isAdmin' => \App\Http\Middleware\isAdmin::class,
 
 6. design Database :
         if u want to login by email, don't change

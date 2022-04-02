@@ -81,4 +81,9 @@ class AdminHomeController extends Controller
             throw $e;
         }
     }
+
+    public function Agent()
+    {
+        return view('agent.index');
+    }
 }

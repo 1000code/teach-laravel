@@ -51,8 +51,17 @@ class RegisterController extends Controller
     {
         return Validator::make($data, [
             'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+            'phone' => ['required', 'string', 'max:10', 'min:10', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
+        ], [
+            'phone.required' => 'ກະລຸນາປ້ອນ ໝາຍເລກໂທລະສັບ',
+
+            'phone.max' => 'ໝາຍເລກໂທລະສັບບໍ່ຖືກ',
+            'phone.min' => 'ໝາຍເລກໂທລະສັບບໍ່ຖືກ',
+            'password.min' => 'ລະຫັດຜ່ານຕ້ອງຫຼາຍວ່າ 8 ຕົວອັກສອນ',
+
+            'password.required' => 'ກະລຸນາປ້ອນລະຫັດຜ່ານ',
+            'password.confirmed' => 'ລະຫັດຜ່ານບໍ່ກົງກັນ',
         ]);
     }
 
@@ -66,7 +75,7 @@ class RegisterController extends Controller
     {
         return User::create([
             'name' => $data['name'],
-            'email' => $data['email'],
+            'phone' => $data['phone'],
             'password' => Hash::make($data['password']),
         ]);
     }

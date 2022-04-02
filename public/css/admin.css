@@ -1,0 +1,8 @@
+@font-face {
+    font-family: Noto;
+    src: url('/fonts/NotoSansLao-Regular.ttf');
+}
+
+*{
+    font-family: Noto;
+}

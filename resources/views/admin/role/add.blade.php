@@ -1,6 +1,6 @@
 @extends('layouts.app')
-@section('contents')
+@section('content')
     <div class="container">
-        {{ Auth()->user()->role }}
+        Agnet
     </div>
 @endsection

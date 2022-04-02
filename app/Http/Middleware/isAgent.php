@@ -5,7 +5,7 @@ namespace App\Http\Middleware;
 use Closure;
 use Illuminate\Http\Request;
 
-class isAdmin
+class isAgent
 {
     /**
      * Handle an incoming request.
@@ -16,7 +16,7 @@ class isAdmin
      */
     public function handle(Request $request, Closure $next)
     {
-        if (auth()->user()->role === 'admin') {
+        if (auth()->user()->role === 'agent' || auth()->user()->role === 'admin') {
             return $next($request);
         } else {
             return redirect()->route('member.home');
