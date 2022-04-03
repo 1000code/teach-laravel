@@ -31,6 +31,9 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/admin/role', [AdminRoleController::class, 'Index'])->name('admin.role')->middleware('isAdmin');
 
     Route::get('/admin/role/update/{slug}', [AdminRoleController::class, 'FormUpdate'])->name('admin.role.update')->middleware('isAdmin');
+    Route::post('/admin/role/update-now', [AdminRoleController::class, 'Update'])->name('admin.role.update.now')->middleware('isAdmin');
+    Route::post('/admin/role/remove', [AdminRoleController::class, 'Remove'])->name('admin.delete.user')->middleware('isAdmin');
+    Route::post('/admin/role/remove-by-ajax', [AdminRoleController::class, 'RemoveAjax'])->name('admin.delete.user.ajax')->middleware('isAdmin');
 
 
 

@@ -3,10 +3,6 @@
     <div class="container">
         <div class="h3 my-3">ເພີມຂໍ້ມູນ</div>
 
-
-
-
-
         <form action="{{ route('book.store') }}" method="post">
             @csrf
             <div class="mb-3">
