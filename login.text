@@ -51,6 +51,6 @@
     11. protect route 
     
         Route::group(['middleware' => ['auth']], function () {
-            Route::get('path', [controller, 'method'])->name('name-route')->middleware('isAdmin');
+            Route::get('path', [controller:class, 'method'])->name('name.route')->middleware('isAdmin');
         });
     
