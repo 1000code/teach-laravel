@@ -41,3 +41,9 @@
             return redirect()->route('login')->with('error', "ຊື່ຜູ້ໃຊ້ ຫຼື ລະຫັດຜ່ານບໍ່ຖືກຕ້ອງ");
         }
     }
+    
+    
+    9. edit registercontroller 
+            if you login by phone change email to phone
+            
+    10. edit view  input type to type:number
