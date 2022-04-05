@@ -47,3 +47,10 @@
             if you login by phone change email to phone
             
     10. edit view  input type to type:number
+    
+    11. protect route 
+    
+        Route::group(['middleware' => ['auth']], function () {
+            Route::get('path', [controller, 'method'])->name('name-route')->middleware('isAdmin');
+        });
+    
